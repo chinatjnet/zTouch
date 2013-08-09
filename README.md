@@ -1,11 +1,12 @@
 zTouch
 ======
 
-Zepto.js v1.0.1   touch extend (Zepto.js v1.0.1 的swipe touch扩展)
+### * Zepto.js v1.0.1   touch extend (Zepto.js v1.0.1 的swipe touch扩展)
 
 Zepto.js v1.0.1版本的touch.js模块引入使用后会导致页面很卡的情况，所以开发了一个新的扩展插件来替换其touch.js。已经过Android/ios测试。<br/>
 由于手机浏览器会阻止JS对gesture手势事件的监听，swipe.js中对gesture监听接口虽然可以调用，但无法实现手势操作。我们会在后续进行多点touch事件模拟解决。<br>
-<b>swipe.js中为事件监听的核心文件。所有的特殊效果可以在回调函数进行个性化定制。</b><br/>
+![github](https://raw.github.com/chinatjnet/zTouch/master/Touch_Gesture_Reference.jpg "Touch_Gesture_Reference")
+<br/><b>swipe.js中为事件监听的核心文件。所有的特殊效果可以在回调函数进行个性化定制。</b><br/>
 ### * 主要提供以下回调函数：<br/>
 <b>sCallback</b> (start callback,touchstart时触发的回调函数),<br/>
 <b>mCallback</b> (move callback,touchmove时触发的回调函数),<br/>
@@ -29,14 +30,14 @@ Zepto.js v1.0.1版本的touch.js模块引入使用后会导致页面很卡的情
 <b>tPoint.vendor</b>:浏览器前缀(-moz/-webkit/-o/-ms);<br/>
 
 ### * 同时在外部回调函数中提供修改内部tPoint数据的接口:<br/>
-tPoint.setAttr(name,value);<br/>
+        tPoint.setAttr(name,value);<br/>
 
 ### * 调用方法:<br/>
     <script type="text/javascript">
     //传入args初始化参数对象
     args={
       iniL:30,//X方向滑动的最小距离
-    	iniT:50,//Y方向滑动的最大距离
+        iniT:50,//Y方向滑动的最大距离
     	eCallback:function(tPoint){
     		switch(tPoint.d){
     			case "left":
@@ -49,3 +50,12 @@ tPoint.setAttr(name,value);<br/>
     }
     $("body").Swipe(args); 
     </script>
+	
+### * 项目地址:<br/>
+http://chinatjnet.github.io/zTouch/
+
+### * 演示地址:<br/>
+http://htmlpreview.github.io/?https://github.com/chinatjnet/zTouch/blob/master/index.html
+<br/><b>二维码：</b><br/>
+![github](https://raw.github.com/chinatjnet/zTouch/master/QRcode.png "QRcode")
+<br><br>
