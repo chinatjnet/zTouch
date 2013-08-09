@@ -4,8 +4,8 @@ zTouch
 Zepto.js v1.0.1   touch extend (Zepto.js v1.0.1 的swipe touch扩展)
 
 Zepto.js v1.0.1版本的touch.js模块引入使用后会导致页面很卡的情况，所以开发了一个新的扩展插件来替换其touch.js.已经过测试。<br/>
-swipe.js中为事件监听的核心文件。所有的特殊效果可以在回调函数进行个性化定制。<br/>
-### 主要提供以下回调函数：<br/>
+<b>swipe.js中为事件监听的核心文件。所有的特殊效果可以在回调函数进行个性化定制。</b><br/>
+### * 主要提供以下回调函数：<br/>
 <b>sCallback</b> (start callback,touchstart时触发的回调函数),<br/>
 <b>mCallback</b> (move callback,touchmove时触发的回调函数),<br/>
 <b>eCallback</b> (end callback,touchstart时触发的回调函数)<br/>
