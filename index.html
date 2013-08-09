@@ -34,10 +34,9 @@ function transformBox(obj,value,time){
 	obj.css({'-webkit-transform':"translate("+value+"px)",'-webkit-transition':time+'ms linear'});
 }
 args={
+	iniL:30,//X方向滑动的最小距离
+	iniT:50,//Y方向滑动的最大距离
 	speed: 300,
-	sCallback:function(tPoint){
-		$("#showT").html("touchStart");
-	},
 	mCallback:function(tPoint){
 		var _this=tPoint.self,
 			_inner=_this.find("#innerBox"),
@@ -67,9 +66,6 @@ args={
 		slide(tPoint.d);
 		$("#showT").html("X-Y轴移动:"+tPoint.mX+"px | "+tPoint.mY+"px<br>X-Y轴限定:"+tPoint.iniL+" | "+tPoint.iniL+"<br>手势滑动方向："+tPoint.d);
 		tPoint.setAttr("count",count);
-	},
-	gsCallback:function(point){
-		alert(point.startRotation+":"+point.startScale);
 	}
 }
 $("#touchBox").Swipe(args);
