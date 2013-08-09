@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,minimum-scale=1,user-scalable=no">
+<title>JS 手机触屏滑动事件</title>
+<script src="zepto.js" type="text/javascript"></script>
+<script src="swipe.js" type="text/javascript"></script>
+<style type="text/css">
+*{}
+#touchBox{width:250px;height:250px;background:#ccc;border:solid 1px #555;cursor:default;cursor: move;overflow:hidden;}
+#innerBox{width:400%;margin:0px;padding:0px;position:relative}
+#innerBox li{width:24%;height:50px;color:#fff;float:left;list-style:none;background:#555;margin-right:1%;}
+#showDrection{}
+</style>
+</head>
+<body>
+
+<div id="touchBox">touchBox
+<ul id="innerBox">
+<li>BOX1</li>
+<li>BOX2</li>
+<li>BOX3</li>
+<li>BOX4</li>
+</ul>
+
+
+</div>
+<div id="showT">111111</div>
+
+<script type="text/javascript">
+function transformBox(obj,value,time){
+  var time=time?time:0;
+	obj.css({'-webkit-transform':"translate("+value+"px)",'-webkit-transition':time+'ms linear'});
+}
+args={
+	speed: 300,
+	sCallback:function(tPoint){
+		$("#showT").html("touchStart");
+	},
+	mCallback:function(tPoint){
+		var _this=tPoint.self,
+			_inner=_this.find("#innerBox"),
+			innerW=_inner.width();
+		var offset=tPoint.mX+tPoint.count*innerW/4;
+		transformBox(_inner,offset,0);
+		$("#showT").html("X轴移动距离"+tPoint.mX+"<br>Y轴移动距离："+tPoint.mY);
+	},
+	eCallback:function(tPoint){
+		var _this=tPoint.self,
+			_inner=_this.find("#innerBox"),
+			innerW=_inner.width(),
+			count=tPoint.count;
+
+		function slide(d){
+			switch(d){
+				case "left":
+					--count;
+					break;
+				case "right":
+					++count;
+			}
+			count=(count==1||count==-tPoint.total)?tPoint.count:count;
+			var offset = count * innerW/tPoint.total;
+			transformBox(_inner,offset,tPoint.speed);
+		}
+		slide(tPoint.d);
+		$("#showT").html("X-Y轴移动:"+tPoint.mX+"px | "+tPoint.mY+"px<br>X-Y轴限定:"+tPoint.iniL+" | "+tPoint.iniL+"<br>手势滑动方向："+tPoint.d);
+		tPoint.setAttr("count",count);
+	},
+	gsCallback:function(point){
+		alert(point.startRotation+":"+point.startScale);
+	}
+}
+$("#touchBox").Swipe(args);
+</script>
+</body>
+</html>
