@@ -31,37 +31,69 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+        <h1>
+<a name="ztouch" class="anchor" href="#ztouch"><span class="octicon octicon-link"></span></a>zTouch</h1>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+<h3>
+<a name="-zeptojs-v101---touch-extend-zeptojs-v101-%E7%9A%84swipe-touch%E6%89%A9%E5%B1%95" class="anchor" href="#-zeptojs-v101---touch-extend-zeptojs-v101-%E7%9A%84swipe-touch%E6%89%A9%E5%B1%95"><span class="octicon octicon-link"></span></a>* Zepto.js v1.0.1   touch extend (Zepto.js v1.0.1 的swipe touch扩展)</h3>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
+<p>Zepto.js v1.0.1版本的touch.js模块引入使用后会导致页面很卡的情况，所以开发了一个新的扩展插件来替换其touch.js。已经过Android/ios测试。<br>
+由于手机浏览器会阻止JS对gesture手势事件的监听，swipe.js中对gesture监听接口虽然可以调用，但无法实现手势操作。我们会在后续进行多点touch事件模拟解决。<br><img src="https://raw.github.com/chinatjnet/zTouch/master/Touch_Gesture_Reference.jpg" alt="github" title="Touch_Gesture_Reference"><br><b>swipe.js中为事件监听的核心文件。所有的特殊效果可以在回调函数进行个性化定制。</b><br></p>
+
+<h3>
+<a name="-%E4%B8%BB%E8%A6%81%E6%8F%90%E4%BE%9B%E4%BB%A5%E4%B8%8B%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0" class="anchor" href="#-%E4%B8%BB%E8%A6%81%E6%8F%90%E4%BE%9B%E4%BB%A5%E4%B8%8B%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0"><span class="octicon octicon-link"></span></a>* 主要提供以下回调函数：<br>
+</h3>
+
+<p><b>sCallback</b> (start callback,touchstart时触发的回调函数),<br><b>mCallback</b> (move callback,touchmove时触发的回调函数),<br><b>eCallback</b> (end callback,touchend时触发的回调函数)<br></p>
+
+<h3>
+<a name="-%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E4%B8%AD%E4%BC%9A%E4%BC%A0%E5%85%A5touch%E4%BA%8B%E4%BB%B6%E7%9B%B8%E5%85%B3%E5%9B%9E%E8%B0%83%E5%8F%82%E6%95%B0" class="anchor" href="#-%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E4%B8%AD%E4%BC%9A%E4%BC%A0%E5%85%A5touch%E4%BA%8B%E4%BB%B6%E7%9B%B8%E5%85%B3%E5%9B%9E%E8%B0%83%E5%8F%82%E6%95%B0"><span class="octicon octicon-link"></span></a>* 回调函数中会传入touch事件相关回调参数：<br>
+</h3>
+
+<p><b>self</b>:实例化的BOX,<br><b>startX</b>:触点起始X,<br><b>startY</b>:触点起始Y,<br><b>bL</b>:(Box Left) 相对于文档的left偏移,<br><b>bT</b>:(Box Top)相对于文档的top偏移,<br><b>bW</b>:(Box Width)BOX的宽度,<br><b>bH</b>:(Box Height)BOX的高度,<br><b>bRb</b>:(Box Right Border)BOX的右边界,<br><b>bBb</b>:(Box Bottom Border)BOX的下边界,<br><b>tPoint.endX</b>:触点结束X;<br><b>tPoint.endY</b>:触点结束Y;<br><b>tPoint.mX</b>:(move x distance)X方向滑动距离;<br><b>tPoint.mY</b>:(move y distance)Y方向滑动距离;<br><b>tPoint.d</b>:手势滑动方向(left/right/false);<br><b>tPoint.vendor</b>:浏览器前缀(-moz/-webkit/-o/-ms);<br></p>
+
+<h3>
+<a name="-%E5%90%8C%E6%97%B6%E5%9C%A8%E5%A4%96%E9%83%A8%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E4%B8%AD%E6%8F%90%E4%BE%9B%E4%BF%AE%E6%94%B9%E5%86%85%E9%83%A8tpoint%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%A5%E5%8F%A3" class="anchor" href="#-%E5%90%8C%E6%97%B6%E5%9C%A8%E5%A4%96%E9%83%A8%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E4%B8%AD%E6%8F%90%E4%BE%9B%E4%BF%AE%E6%94%B9%E5%86%85%E9%83%A8tpoint%E6%95%B0%E6%8D%AE%E7%9A%84%E6%8E%A5%E5%8F%A3"><span class="octicon octicon-link"></span></a>* 同时在外部回调函数中提供修改内部tPoint数据的接口:<br>
+</h3>
+
+<pre><code>    tPoint.setAttr(name,value);&lt;br/&gt;
 </code></pre>
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+<h3>
+<a name="-%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95" class="anchor" href="#-%E8%B0%83%E7%94%A8%E6%96%B9%E6%B3%95"><span class="octicon octicon-link"></span></a>* 调用方法:<br>
+</h3>
+
+<pre><code>&lt;script type="text/javascript"&gt;
+//传入args初始化参数对象
+args={
+  iniL:30,//X方向滑动的最小距离
+    iniT:50,//Y方向滑动的最大距离
+    eCallback:function(tPoint){
+        switch(tPoint.d){
+            case "left":
+                alert("left");
+                break;
+            case "right":
+                alert("right");
+        }
+    }
+}
+$("body").Swipe(args); 
+&lt;/script&gt;
+</code></pre>
 
 <h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+<a name="-%E9%A1%B9%E7%9B%AE%E5%9C%B0%E5%9D%80" class="anchor" href="#-%E9%A1%B9%E7%9B%AE%E5%9C%B0%E5%9D%80"><span class="octicon octicon-link"></span></a>* 项目地址:<br>
+</h3>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+<p><a href="http://chinatjnet.github.io/zTouch/">http://chinatjnet.github.io/zTouch/</a></p>
 
 <h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+<a name="-%E6%BC%94%E7%A4%BA%E5%9C%B0%E5%9D%80" class="anchor" href="#-%E6%BC%94%E7%A4%BA%E5%9C%B0%E5%9D%80"><span class="octicon octicon-link"></span></a>* 演示地址:<br>
+</h3>
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
+<p><a href="http://htmlpreview.github.io/?https://github.com/chinatjnet/zTouch/blob/master/index.html">http://htmlpreview.github.io/?https://github.com/chinatjnet/zTouch/blob/master/index.html</a>
+<br><b>二维码：</b><br><img src="https://raw.github.com/chinatjnet/zTouch/master/QRcode.png" alt="github" title="QRcode"><br><br></p>
       </section>
     </div>
 
