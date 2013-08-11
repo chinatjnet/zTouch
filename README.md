@@ -26,7 +26,7 @@ Zepto.js v1.0.1版本的touch.js模块引入使用后会导致页面很卡的情
 <b>tPoint.endY</b>:触点结束Y;<br/>
 <b>tPoint.mX</b>:(move x distance)X方向滑动距离;<br/>
 <b>tPoint.mY</b>:(move y distance)Y方向滑动距离;<br/>
-<b>tPoint.d</b>:手势滑动方向(left/right/false);<br/>
+<b>tPoint.direction</b>:手势滑动方向(left/right/false);<br/>
 <b>tPoint.vendor</b>:浏览器前缀(-moz/-webkit/-o/-ms);<br/>
 
 ### * 同时在外部回调函数中提供修改内部tPoint数据的接口:<br/>
@@ -39,7 +39,7 @@ Zepto.js v1.0.1版本的touch.js模块引入使用后会导致页面很卡的情
       iniL:30,//X方向滑动的最小距离
         iniT:50,//Y方向滑动的最大距离
     	eCallback:function(tPoint){
-    		switch(tPoint.d){
+    		switch(tPoint.direction){
     			case "left":
     				alert("left");
     				break;
