@@ -38,14 +38,14 @@ Zepto.js v1.0.1版本的touch.js模块引入使用后会导致页面很卡的情
 <b>bH</b>:(Box Height)BOX的高度,<br/>
 <b>bRb</b>:(Box Right Border)BOX的右边界,<br/>
 <b>bBb</b>:(Box Bottom Border)BOX的下边界,<br/>
-<b>tPoint.endX</b>:触点结束X;<br/>
-<b>tPoint.endY</b>:触点结束Y;<br/>
-<b>tPoint.mX</b>:(move x distance)X方向滑动距离;<br/>
-<b>tPoint.mY</b>:(move y distance)Y方向滑动距离;<br/>
-<b>tPoint.direction</b>:手势滑动方向(left/right/false);<br/>
-<b>tPoint.angle</b>:单点手势滑动角度;<br/>
-<b>tPoint.duration</b>:手势持续时间;<br/>
-<b>tPoint.vendor</b>:浏览器前缀(-moz/-webkit/-o/-ms);<br/><br/>
+<b>endX</b>:触点结束X;<br/>
+<b>endY</b>:触点结束Y;<br/>
+<b>mX</b>:(move x distance)X方向滑动距离;<br/>
+<b>mY</b>:(move y distance)Y方向滑动距离;<br/>
+<b>direction</b>:手势滑动方向(left/right/false);<br/>
+<b>angle</b>:单点手势滑动角度;<br/>
+<b>duration</b>:手势持续时间;<br/>
+<b>vendor</b>:浏览器前缀(-moz/-webkit/-o/-ms);<br/><br/>
 
 <b>tPoint.multiTouch</b>:是否多点触摸(touchmove时可监控);<br/>
 <b>tPoint.gStartDis</b>:(gisture start distance)手势起始距离;<br/>
