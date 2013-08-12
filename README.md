@@ -44,6 +44,7 @@ Zepto.js v1.0.1版本的touch.js模块引入使用后会导致页面很卡的情
 <b>tPoint.mY</b>:(move y distance)Y方向滑动距离;<br/>
 <b>tPoint.direction</b>:手势滑动方向(left/right/false);<br/>
 <b>tPoint.angle</b>:单点手势滑动角度;<br/>
+<b>tPoint.duration</b>:手势持续时间;<br/>
 <b>tPoint.vendor</b>:浏览器前缀(-moz/-webkit/-o/-ms);<br/><br/>
 
 <b>tPoint.multiTouch</b>:是否多点触摸(touchmove时可监控);<br/>
