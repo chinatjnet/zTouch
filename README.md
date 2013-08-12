@@ -22,9 +22,11 @@ Zepto.js v1.0.1版本的touch.js模块引入使用后会导致页面很卡的情
 ![github](https://raw.github.com/chinatjnet/zTouch/master/example/images/Touch_Gesture_Reference.jpg "Touch_Gesture_Reference")
 <br/><b>zTouch.js中为事件监听的核心文件。所有的特殊效果可以在回调函数进行个性化定制。</b><br/>
 ### * 主要提供以下回调函数：<br/>
+<b>beforeCallback</b> (实例化之前触发的回调函数),<br/>
 <b>sCallback</b> (start callback,touchstart时触发的回调函数),<br/>
 <b>mCallback</b> (move callback,touchmove时触发的回调函数),<br/>
 <b>eCallback</b> (end callback,touchend时触发的回调函数)<br/>
+<b>afterCallback</b> (实例化之后触发的回调函数),<br/>
 
 ### * 回调函数中会传入touch事件相关回调参数：<br/>
 <b>self</b>:实例化的BOX,<br/>
