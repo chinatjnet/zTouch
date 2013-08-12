@@ -139,7 +139,9 @@ function Swipe(tBox,args) {
 		if(tPoint.touch){
 			setPointData(point);
 			multiTouchDetect(e);// Muti touch detect
-			args.mCallback(tPoint);
+			if(typeof args.mCallback=="function"){
+				args.mCallback(tPoint);
+			}
 		}
 		if(Math.abs(tPoint.angle)<tPoint.iniAngle){
 			e.preventDefault();	
