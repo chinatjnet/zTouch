@@ -4,7 +4,9 @@ zTouch
 ### * Zepto.js v1.0.1   touch extend (Zepto.js v1.0.1 的swipe touch扩展)
 
 Zepto.js v1.0.1版本的touch.js模块引入使用后会导致页面很卡的情况，所以开发了一个新的扩展插件来替换其touch.js。已经过Android/ios测试。<br/>
-由于手机浏览器会阻止JS对gesture手势事件的监听，~~swipe.js中对gesture监听接口虽然可以调用，但无法实现手势操作(Android设备测试，IOS设备应该支持)。我们会在后续进行多点touch事件模拟解决。~~**(最新版zTouch已经去除对gesture事件的监听方法，采用e.touches对多点触摸进行监控，支持两点监控的缩放和旋转操作)**<br>
+由于手机浏览器会阻止JS对gesture手势事件的监听
+~~swipe.js中对gesture监听接口虽然可以调用，但无法实现手势操作(Android设备测试，IOS设备应该支持)。我们会在后续进行多点touch事件模拟解决。~~
+**(最新版zTouch已经去除对gesture事件的监听方法，采用e.touches对多点触摸进行监控，支持两点监控的缩放和旋转操作)**<br>
 ![github](https://raw.github.com/chinatjnet/zTouch/master/example/images/Touch_Gesture_Reference.jpg "Touch_Gesture_Reference")
 <br/><b>swipe.js中为事件监听的核心文件。所有的特殊效果可以在回调函数进行个性化定制。</b><br/>
 ### * 主要提供以下回调函数：<br/>
