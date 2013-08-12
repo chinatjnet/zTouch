@@ -78,7 +78,7 @@ Zepto.js v1.0.1版本的touch.js模块引入使用后会导致页面很卡的情
 http://chinatjnet.github.io/zTouch/
 
 ### * 演示地址:<br/>
-http://htmlpreview.github.io/?https://github.com/chinatjnet/zTouch/blob/master/index.html
+http://chinatjnet.github.io/zTouch/demo.html
 <br/><b>二维码：</b><br/>
 ![github](https://raw.github.com/chinatjnet/zTouch/master/example/images/QRcode.png "QRcode")
 <br><br>
