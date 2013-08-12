@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,minimum-scale=1,user-scalable=no">
+<title>zTouch 手机触屏滑动事件</title>
+<script src="../zepto.js" type="text/javascript"></script>
+<script src="../zTouch.js" type="text/javascript"></script>
+<style type="text/css">
+*{font-family: XinGothic-SinaWeibo, 'Microsoft Yahei', Simsun;}
+#touchBox{display:table;width:100%;height:250px;margin:0px auto;background:#ccc;border:solid 1px #555;cursor: move;overflow:hidden;}
+#innerBox{display:table-cell;vertical-align:middle;text-align:center;overflow:hidden;}
+#innerBox img{width:50%;}
+#showT{height:60px;overflow:hidden;}
+</style>
+</head>
+<body>
+<center><b>支持多点触摸手势（仅监控两点）</b></center><br>
+<div id="showT">Muti Touch Demo 双指缩放</div>
+<div>PS:一些浏览器并不支持用户对多点触摸的监控（如QQ浏览器,已将两点触摸锁定为自己的浏览器缩放[目测是其功能缺失]，UC/百度/华为自带浏览器均能正常监控）</div>
+<div id="touchBox">
+	<div id="innerBox"><img src="images/Touch_Gesture_Reference.jpg" alt="multi touch"></div>
+</div>
+<script type="text/javascript">
+
+args={
+	iniAngle:180,
+	beforeCallback:function(tPoint){
+		var _this=tPoint.self,
+			_width=_this.find("img").width();
+		tPoint.setAttr("iniWidth",_width);		
+	},
+	sCallback:function(tPoint){
+	 e.touches.length
+	},
+	mCallback:function(tPoint){
+		var _this=tPoint.self,
+			img=_this.find("img");
+		if(tPoint.mutiTouch){
+			if(!tPoint.startScale){
+				tPoint.setAttr("startScale",0.5);
+			}else{
+				_curScale=tPoint.startScale*tPoint.scale;
+				img.css("width",_curScale*100+"%");
+				tPoint.setAttr("curScale",_curScale);
+				//$("#showT").html("起始缩放:"+tPoint.startScale+"<br>当前缩放:"+tPoint.curScale);	
+				$("#showT").html("缩放:"+tPoint.scale+"<br>起始距离:"+Math.round(tPoint.gStartDis*100)/100+" 当前距离"+Math.round(tPoint.gEndDis*100)/100+"<br>旋转角度:"+tPoint.rotation);		
+			}
+		}
+		//$("#showT").html(tPoint.gStartDis+"  "+tPoint.gEndDis);
+		//$("#showT").html(tPoint.rotation+"  "+tPoint.gStartAngle+"  "+tPoint.gEndAngle);
+	},
+	eCallback:function(tPoint){
+		if(tPoint.curScale){
+			tPoint.setAttr("startScale",tPoint.curScale);
+		}		
+	}
+}
+$("#touchBox").Swipe(args);
+</script>
+</body>
+</html>

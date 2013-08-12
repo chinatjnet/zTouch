@@ -1,5 +1,5 @@
 function Swipe(tBox,args) {
-  var tPoint={
+	var tPoint={
 		self:tBox,
 		count:0,
 		total:tBox.children().children().length,
@@ -81,7 +81,6 @@ function Swipe(tBox,args) {
 	function multiTouchDetect(e){
 		tPoint.tLen=e.touches.length;
 		if(tPoint.tLen>1){
-			
 			var point0=e.touches[0],
 				point1=e.touches[1],
 				xLen=point1.pageX-point0.pageX,
@@ -145,7 +144,6 @@ function Swipe(tBox,args) {
 		if(Math.abs(tPoint.angle)<tPoint.iniAngle){
 			e.preventDefault();	
 		}
-		
 	}
 	
 	function endFun(e){
