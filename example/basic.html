@@ -68,9 +68,6 @@ args={
 		slide(tPoint.direction);
 		$("#showT").html("X-Y轴移动:"+tPoint.mX+"px | "+tPoint.mY+"px<br>X-Y轴限定:"+tPoint.iniL+" | "+tPoint.iniL+"<br>手势滑动方向："+tPoint.direction);
 		tPoint.setAttr("count",count);
-	},
-	gsCallback:function(point){
-		alert(point.startRotation+":"+point.startScale);
 	}
 }
 $("#touchBox").Swipe(args);
