@@ -15,15 +15,9 @@ function Swipe(tBox,args) {
 	};
 	
 	//初始化
-	var jtBox=tBox.get(0),
-		_this=tBox;
+	var _this=tPoint.self;
 	for(var o in args){
 		tPoint[o]=args[o];
-	}
-	
-	//实例化之前的回调函数
-	if(typeof args.beforeCallback=="function"){
-		args.beforeCallback(tPoint);
 	}
 	
 	//获取浏览器前缀
@@ -33,7 +27,10 @@ function Swipe(tBox,args) {
 	  		'opera' in window ? 'O' : '';
 	  	return vendor;
 	}
-
+	
+  	// Browser capabilities
+  	tPoint.has3d = 'WebKitCSSMatrix' in window && 'm11' in new WebKitCSSMatrix();
+	
 	//方向检测(左移距离，上移距离)
 	function directionDetect(l,t){
 		if(Math.abs(t)<tPoint.iniT&&Math.abs(l)>tPoint.iniL){
@@ -125,8 +122,8 @@ function Swipe(tBox,args) {
 		}
 		setPointData(point,setList);
 		tPoint.touch=true;
-		if(typeof args.sCallback=="function"){
-			args.sCallback(tPoint);
+		if(typeof tPoint.sCallback=="function"){
+			tPoint.sCallback(tPoint);
 		}	
 	}
 	
@@ -139,8 +136,8 @@ function Swipe(tBox,args) {
 		if(tPoint.touch){
 			setPointData(point);
 			multiTouchDetect(e);// Muti touch detect
-			if(typeof args.mCallback=="function"){
-				args.mCallback(tPoint);
+			if(typeof tPoint.mCallback=="function"){
+				tPoint.mCallback(tPoint);
 			}
 		}
 		if(Math.abs(tPoint.angle)<tPoint.iniAngle){
@@ -151,21 +148,27 @@ function Swipe(tBox,args) {
 	function endFun(e){
 		tPoint.touch=false;
 		tPoint.mutiTouch=false;
-		if(typeof args.eCallback=="function"){
-			args.eCallback(tPoint);
+		if(typeof tPoint.eCallback=="function"){
+			tPoint.eCallback(tPoint);
 		}
+	}
+
+	//实例化之前的回调函数
+	if(typeof tPoint.beforeCallback=="function"){
+		tPoint.beforeCallback(tPoint);
 	}
 	
 	//Touch事件监听
-	tBox.die("touchstart,touchmove,touchend");
-	jtBox.addEventListener('touchstart',startFun);
-	jtBox.addEventListener('touchmove',moveFun);
-	jtBox.addEventListener('touchend',endFun);
+	//if(tPoint.speed==200)return;
+	_this.die("touchstart,touchmove,touchend");
+	_this.get(0).addEventListener('touchstart',startFun);
+	_this.get(0).addEventListener('touchmove',moveFun);
+	_this.get(0).addEventListener('touchend',endFun);
 	
 	//实例化之后的回调函数
-	if(typeof args.afterCallback=="function"){
-		args.afterCallback(tPoint);
-	}
+	if(typeof tPoint.afterCallback=="function"){
+		tPoint.afterCallback(tPoint);
+	}	
 }
 
 if (window.jQuery || window.Zepto) { (function(a) {

@@ -58,9 +58,10 @@ button:active{
 <div id="showT">zTouch Slide Demo</div>
 
 <script type="text/javascript">
-function transformBox(obj,value,time){
+function transformBox(obj,value,time,has3d){
 	var time=time?time:0;
-	obj.css({'-webkit-transform':"translate("+value+"px)",'-webkit-transition':time+'ms linear'});
+	transl=has3d?"translate3d("+value+"px,0,0)":"translate("+value+"px,0)";
+	obj.css({'-webkit-transform':transl,'-webkit-transition':time+'ms linear'});
 }
 
 function slide(tPoint,d){
@@ -83,7 +84,7 @@ function slide(tPoint,d){
 		count=(typeof _autoSlide!="undefined")?0:-tPoint.total+1;
 	}
 	var offset = count * innerW/tPoint.total;
-	transformBox(_inner,offset,tPoint.speed);
+	transformBox(_inner,offset,tPoint.speed,tPoint.has3d);
 	tPoint.setAttr("count",count);
 }
 
@@ -114,7 +115,7 @@ args={
 			_inner=_this.find("#innerBox"),
 			innerW=_inner.width();
 		var offset=tPoint.mX+tPoint.count*innerW/4;
-		transformBox(_inner,offset,0);
+		transformBox(_inner,offset,0,tPoint.has3d);
 		$("#showT").html("角度:"+tPoint.angle+"<br>时间:"+tPoint.duration+"<br>X轴移动距离"+tPoint.mX+"  Y轴移动距离："+tPoint.mY);
 	},
 	eCallback:function(tPoint){

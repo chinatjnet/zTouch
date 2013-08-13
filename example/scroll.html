@@ -34,8 +34,9 @@ eCallback (end callback,touchend时触发的回调函数)<br>
 <div id="showT">zTouch Scroll Demo</div>
 
 <script type="text/javascript">
-function transformBox(obj,value){
-	obj.css({'-webkit-transform':"translate(0,"+value+"px)"});
+function transformBox(obj,value,has3d){
+	var transl=has3d?"translate3d(0,"+value+"px,0)":"translate(0,"+value+"px)";
+	obj.css({'-webkit-transform':transl});
 }
 
 function getTransY(obj){
@@ -45,7 +46,7 @@ function getTransY(obj){
 	if(trans){
 		var transArr=trans[1].split(","),
 			len=transArr.length;
-		transY=transArr[len-1].replace("px","");
+		transY=transArr[len-2].replace("px","");
 	}
 	return Number(transY);
 }
@@ -72,7 +73,7 @@ args={
 			offset=0;
 		}
 		//offset=tPoint.mY>0?offset/1.2:offset*1.2;
-		transformBox(_inner,offset);
+		transformBox(_inner,offset,tPoint.has3d);
 		$("#showT").html("translateY:"+transY+"  时间:"+tPoint.duration+"<br>X-Y轴移动:"+tPoint.mX+"px | "+tPoint.mY);
 	}
 }
