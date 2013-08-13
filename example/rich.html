@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,minimum-scale=1,user-scalable=no">
-<title>zTouch 手机触屏滑动事件</title>
+<title>zTouch 综合示例</title>
 <script src="../zepto.js" type="text/javascript"></script>
 <script src="../zTouch.js" type="text/javascript"></script>
 <style type="text/css">
@@ -24,7 +24,7 @@ border-bottom: 2px solid #FB8700;
 #imgInBox li h3{position:absolute;left:0;bottom:0;right:0px;background: rgba(0, 0, 0, 0.6);color:#fff;font-size:16px;font-weight:normal;margin:0px;padding:4px 0px;}
 
 
-.newBox{width:100%;margin:0px auto;cursor:move;overflow:hidden;}
+.newBox{width:100%;margin:0px auto;cursor:move;overflow:hidden;-webkit-perspective: 1000;}
 .newInBox{width:300%;margin:0px;padding:0px;}
 .newInBox ul{width:33.3%;float:left;list-style:none;}
 .p_newslist li{height:35px;line-height:35px;}
@@ -45,7 +45,7 @@ display: block;font-size: 14px;text-align: center;-webkit-border-radius: 5px;bor
 </head>
 <body>
 <div id="nav">
-zTouch多效果演示
+zTouch 综合示例
 </div>
 
 
@@ -79,67 +79,63 @@ zTouch多效果演示
 			<li><a href="http://blog.baiwand.com/m">李案受害方就敲诈说反问梦鸽</a></li>
 		</ul>
 		<ul class="p_newslist">	
-			<li><a href="http://blog.baiwand.com/m">2曝篮协高层保男篮新帅不下课</a></li>
-			<li><a href="http://blog.baiwand.com/m">2专家:科比巅峰期单挑能赢乔丹</a></li>
-			<li><a href="http://blog.baiwand.com/m">2李案受害方就敲诈说反问梦鸽</a></li>
-			<li><a href="http://blog.baiwand.com/m">2披露宋祖英升任就职过程(图)</a></li>
-			<li><a href="http://blog.baiwand.com/m">2张家辉vs彭于晏:如脱缰野马</a></li>			
-			<li><a href="http://blog.baiwand.com/m">2林丹逆转李宗伟五夺冠</a></li>
-			<li><a href="http://blog.baiwand.com/m">2[书]老公是匹狼:天价小娇妻</a></li>		
-			<li><a href="http://blog.baiwand.com/m">2新疆巴楚暴恐案2名被告获死刑</a></li>
+			<li><a href="http://blog.baiwand.com/m">曝篮协高层保男篮新帅不下课</a></li>
+			<li><a href="http://blog.baiwand.com/m">专家:科比巅峰期单挑能赢乔丹</a></li>
+			<li><a href="http://blog.baiwand.com/m">李案受害方就敲诈说反问梦鸽</a></li>
+			<li><a href="http://blog.baiwand.com/m">披露宋祖英升任就职过程(图)</a></li>
+			<li><a href="http://blog.baiwand.com/m">张家辉vs彭于晏:如脱缰野马</a></li>			
+			<li><a href="http://blog.baiwand.com/m">林丹逆转李宗伟五夺冠</a></li>
+			<li><a href="http://blog.baiwand.com/m">[书]老公是匹狼:天价小娇妻</a></li>		
+			<li><a href="http://blog.baiwand.com/m">新疆巴楚暴恐案2名被告获死刑</a></li>
 		</ul>
 		<ul class="p_newslist">	
-			<li><a href="http://blog.baiwand.com/m">3张家辉vs彭于晏:如脱缰野马</a></li>			
-			<li><a href="http://blog.baiwand.com/m">3林丹逆转李宗伟五夺冠</a></li>
-			<li><a href="http://blog.baiwand.com/m">3[书]老公是匹狼:天价小娇妻</a></li>		
-			<li><a href="http://blog.baiwand.com/m">3新疆巴楚暴恐案2名被告获死刑</a></li>
-			<li><a href="http://blog.baiwand.com/m">3楼顶盖别墅者曾为区政协委员</a></li>
-			<li><a href="http://blog.baiwand.com/m">3李克强追问上海市长改不改革</a></li>
-			<li><a href="http://blog.baiwand.com/m">3专家:科比巅峰期单挑能赢乔丹</a></li>
-			<li><a href="http://blog.baiwand.com/m">3李案受害方就敲诈说反问梦鸽</a></li>
+			<li><a href="http://blog.baiwand.com/m">张家辉vs彭于晏:如脱缰野马</a></li>			
+			<li><a href="http://blog.baiwand.com/m">林丹逆转李宗伟五夺冠</a></li>
+			<li><a href="http://blog.baiwand.com/m">[书]老公是匹狼:天价小娇妻</a></li>		
+			<li><a href="http://blog.baiwand.com/m">新疆巴楚暴恐案2名被告获死刑</a></li>
+			<li><a href="http://blog.baiwand.com/m">楼顶盖别墅者曾为区政协委员</a></li>
+			<li><a href="http://blog.baiwand.com/m">李克强追问上海市长改不改革</a></li>
+			<li><a href="http://blog.baiwand.com/m">专家:科比巅峰期单挑能赢乔丹</a></li>
+			<li><a href="http://blog.baiwand.com/m">李案受害方就敲诈说反问梦鸽</a></li>
 		</ul>
 	</div>
 </div>
 
 <div id="tablist" class="tablist">
 <ul>
-	<li class="active">新闻</li>
-	<li>军事</li>
-	<li>社会</li>
+	<li class="active">科技</li>
+	<li>手机</li>
+	<li>探索</li>
 </ul>
 </div>
 
 <div class="newBox">
 	<div class="newInBox">
 		<ul class="p_newslist">			
-			<li><a href="http://blog.baiwand.com/m">新疆巴楚暴恐案2名被告获死刑</a></li>
-			<li><a href="http://blog.baiwand.com/m">楼顶盖别墅者曾为区政协委员</a></li>
-			<li><a href="http://blog.baiwand.com/m">李克强追问上海市长改不改革</a></li>
-			<li><a href="http://blog.baiwand.com/m">陕西神木富豪一夜返贫频跑路</a></li>
-			<li><a href="http://blog.baiwand.com/m">吴敬琏:社会矛盾几乎到临界点</a></li>
-			<li><a href="http://blog.baiwand.com/m">曝篮协高层保男篮新帅不下课</a></li>
-			<li><a href="http://blog.baiwand.com/m">专家:科比巅峰期单挑能赢乔丹</a></li>
-			<li><a href="http://blog.baiwand.com/m">李案受害方就敲诈说反问梦鸽</a></li>
+			<li><a href="http://blog.baiwand.com/m">张朝阳对话周鸿祎:避谈合作</a></li>
+			<li><a href="http://blog.baiwand.com/m">小米手机3代确认将推迟发布</a></li>
+			<li><a href="http://blog.baiwand.com/m">新一代iPhone靠谱传言大盘点</a></li>
+			<li><a href="http://blog.baiwand.com/m">腾讯否认微信将要拆分上市</a></li>
+			<li><a href="http://blog.baiwand.com/m">农村妇人在互联网上玩什么？</a></li>
+			<li><a href="http://blog.baiwand.com/m">蜜蜂胡子大赛:万只蜜蜂爬满脸</a></li>
+		</ul>
+		<ul class="p_newslist">
+			<li><a href="http://blog.baiwand.com/m">新一代iPhone靠谱传言大盘点</a></li>
+			<li><a href="http://blog.baiwand.com/m">农村妇人在互联网上玩什么？</a></li>
+			<li><a href="http://blog.baiwand.com/m">腾讯否认微信将要拆分上市</a></li>
+			<li><a href="http://blog.baiwand.com/m">蜜蜂胡子大赛:万只蜜蜂爬满脸</a></li>
+			<li><a href="http://blog.baiwand.com/m">张朝阳对话周鸿祎:避谈合作</a></li>
+			<li><a href="http://blog.baiwand.com/m">小米手机3代确认将推迟发布</a></li>
+
 		</ul>
 		<ul class="p_newslist">	
-			<li><a href="http://blog.baiwand.com/m">2曝篮协高层保男篮新帅不下课</a></li>
-			<li><a href="http://blog.baiwand.com/m">2专家:科比巅峰期单挑能赢乔丹</a></li>
-			<li><a href="http://blog.baiwand.com/m">2李案受害方就敲诈说反问梦鸽</a></li>
-			<li><a href="http://blog.baiwand.com/m">2披露宋祖英升任就职过程(图)</a></li>
-			<li><a href="http://blog.baiwand.com/m">2张家辉vs彭于晏:如脱缰野马</a></li>			
-			<li><a href="http://blog.baiwand.com/m">2林丹逆转李宗伟五夺冠</a></li>
-			<li><a href="http://blog.baiwand.com/m">2[书]老公是匹狼:天价小娇妻</a></li>		
-			<li><a href="http://blog.baiwand.com/m">2新疆巴楚暴恐案2名被告获死刑</a></li>
-		</ul>
-		<ul class="p_newslist">	
-			<li><a href="http://blog.baiwand.com/m">3张家辉vs彭于晏:如脱缰野马</a></li>			
-			<li><a href="http://blog.baiwand.com/m">3林丹逆转李宗伟五夺冠</a></li>
-			<li><a href="http://blog.baiwand.com/m">3[书]老公是匹狼:天价小娇妻</a></li>		
-			<li><a href="http://blog.baiwand.com/m">3新疆巴楚暴恐案2名被告获死刑</a></li>
-			<li><a href="http://blog.baiwand.com/m">3楼顶盖别墅者曾为区政协委员</a></li>
-			<li><a href="http://blog.baiwand.com/m">3李克强追问上海市长改不改革</a></li>
-			<li><a href="http://blog.baiwand.com/m">3专家:科比巅峰期单挑能赢乔丹</a></li>
-			<li><a href="http://blog.baiwand.com/m">3李案受害方就敲诈说反问梦鸽</a></li>
+			<li><a href="http://blog.baiwand.com/m">腾讯否认微信将要拆分上市</a></li>
+			<li><a href="http://blog.baiwand.com/m">农村妇人在互联网上玩什么？</a></li>
+			<li><a href="http://blog.baiwand.com/m">蜜蜂胡子大赛:万只蜜蜂爬满脸</a></li>
+			<li><a href="http://blog.baiwand.com/m">张朝阳对话周鸿祎:避谈合作</a></li>
+			<li><a href="http://blog.baiwand.com/m">腾讯否认微信将要拆分上市</a></li>
+			<li><a href="http://blog.baiwand.com/m">农村妇人在互联网上玩什么？</a></li>
+
 		</ul>
 	</div>
 </div>
@@ -166,7 +162,7 @@ zTouch多效果演示
 function transformBox(obj,value,time,has3d){
 	var time=time?time:0;
 	transl=has3d?"translate3d("+value+"px,0,0)":"translate("+value+"px,0)";
-	obj.children().css({'-webkit-transform':transl,'-webkit-transition':time+'ms linear'});
+	obj.css({'-webkit-transform':transl,'-webkit-transition':time+'ms linear'});
 }
 
 //-------------------幻灯片实例化 Start------------------
