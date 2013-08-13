@@ -155,7 +155,6 @@ function Swipe(tBox,args) {
 	}
 	
 	//Touch事件监听
-	//if(tPoint.speed==200)return;
 	_this.die("touchstart,touchmove,touchend");
 	_this.get(0).addEventListener('touchstart',startFun);
 	_this.get(0).addEventListener('touchmove',moveFun);
