@@ -3,286 +3,60 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1,minimum-scale=1,user-scalable=no">
-<title>zTouch 综合示例</title>
+<title>zTouch 手机触屏滑动事件</title>
 <script src="../zepto.js" type="text/javascript"></script>
 <script src="../zTouch.js" type="text/javascript"></script>
 <style type="text/css">
-*{margin:0px;padding:0px;font-family:'Microsoft Yahei', Simsun;}
-#nav{
-text-align:center;
-padding:8px 5px;
-font-size:18px;
-border-top: 1px solid #D9DADC;
-border-bottom: 2px solid #FB8700;
-}
-
-#imgBox{width:100%;background:#ccc;cursor:default;cursor: move;overflow:hidden;margin-bottom:10px;}
-#imgInBox{width:400%;margin:0px;padding:0px;position:relative;overflow:hidden}
-#imgInBox li{position:relative;float:left;width:25%;list-style:none;text-align:center;color:#fff;background:#fff;}
-#imgInBox li a{margin-bottom:-4px;display:block;}
-#imgInBox li img{width:100%;max-width:400px;border:0px}
-#imgInBox li h3{position:absolute;left:0;bottom:0;right:0px;background: rgba(0, 0, 0, 0.6);color:#fff;font-size:16px;font-weight:normal;margin:0px;padding:4px 0px;}
-
-
-.newBox{width:100%;margin:0px auto;cursor:move;overflow:hidden;-webkit-perspective: 1000;}
-.newInBox{width:300%;margin:0px;padding:0px;}
-.newInBox ul{width:33.3%;float:left;list-style:none;}
-.p_newslist li{height:35px;line-height:35px;}
-.p_newslist li a{color:#555;font-size:18px;text-decoration:none;padding:0px 15px}
-
-.tablist ul{text-align:center;padding:5px;border:solid 1px #ccc;background:#f1f1f1;margin-top:15px;margin-bottom:10px;list-style:none;}
-.tablist ul li{width:25%;margin:0px 3%;height:30px;line-height:30px;display:inline-block}
-.tablist ul .active{background:#FB8600;color:#fff}
-
-#tablist2 ul{text-align:left;list-style:none;}
-#tablist2 ul li{text-align:center}
-
-.p_newsmore{color:#333;text-decoration:none;clear: both;margin: 4px 12px;height: 30px;line-height: 30px;border: 1px solid #D7D7D7;
-display: block;font-size: 14px;text-align: center;-webkit-border-radius: 5px;border-radius: 5px;background: -webkit-gradient(linear,0 0,0 100%,from(#EFEFEF),to(#E4E4E4));
--moz-box-shadow: inset 0px 1px 0px #fbfbfb;-webkit-box-shadow: inset 0px 1px 0px #FBFBFB;box-shadow: inset 0px 1px 0px #FBFBFB;
-}
+*{font-family: XinGothic-SinaWeibo, 'Microsoft Yahei', Simsun;}
+#touchBox{display:table;width:100%;height:250px;margin:0px auto;background:#ccc;border:solid 1px #555;cursor: move;overflow:hidden;}
+#innerBox{display:table-cell;vertical-align:middle;text-align:center;overflow:hidden;}
+#innerBox img{width:50%;}
+#showT{height:60px;overflow:hidden;}
 </style>
 </head>
 <body>
-<div id="nav">
-zTouch 综合示例
+<center><b>支持多点触摸手势（仅监控两点）</b></center><br>
+<div id="showT">Muti Touch Demo 双指缩放</div>
+<div>PS:一些浏览器并不支持用户对多点触摸的监控（如QQ浏览器,已将两点触摸锁定为自己的浏览器缩放[目测是其功能缺失]，UC/百度/华为自带浏览器均能正常监控）</div>
+<div id="touchBox">
+	<div id="innerBox"><img src="images/Touch_Gesture_Reference.jpg" alt="multi touch"></div>
 </div>
-
-
-<div id="imgBox">
-<ul id="imgInBox">
-	<li><a href="http://blog.baiwand.com/m"><img src="images/1.jpg" alt="01"></a><h3>阿迪力无保护走钢丝横跨珠江</h3></li>
-	<li><a href="http://blog.baiwand.com/m"><img src="images/2.jpg" alt="02"></a><h3>武汉一大学山寨各国著名建筑</h3></li>
-	<li><a href="http://blog.baiwand.com/m"><img src="images/3.jpg" alt="03"></a><h3>白富美马路中央跨双黄线停车</h3></li>
-	<li><a href="http://blog.baiwand.com/m"><img src="images/4.jpg" alt="04"></a><h3>莫斯科田径世锦赛开幕</h3></li>
-</ul>
-</div>
-
-
-<div id="tablist" class="tablist">
-<ul>
-	<li class="active">新闻</li>
-	<li>军事</li>
-	<li>社会</li>
-</ul>
-</div>
-<div class="newBox">
-	<div class="newInBox">
-		<ul class="p_newslist">			
-			<li><a href="http://blog.baiwand.com/m">新疆巴楚暴恐案2名被告获死刑</a></li>
-			<li><a href="http://blog.baiwand.com/m">楼顶盖别墅者曾为区政协委员</a></li>
-			<li><a href="http://blog.baiwand.com/m">李克强追问上海市长改不改革</a></li>
-			<li><a href="http://blog.baiwand.com/m">陕西神木富豪一夜返贫频跑路</a></li>
-			<li><a href="http://blog.baiwand.com/m">吴敬琏:社会矛盾几乎到临界点</a></li>
-			<li><a href="http://blog.baiwand.com/m">曝篮协高层保男篮新帅不下课</a></li>
-			<li><a href="http://blog.baiwand.com/m">专家:科比巅峰期单挑能赢乔丹</a></li>
-			<li><a href="http://blog.baiwand.com/m">李案受害方就敲诈说反问梦鸽</a></li>
-		</ul>
-		<ul class="p_newslist">	
-			<li><a href="http://blog.baiwand.com/m">曝篮协高层保男篮新帅不下课</a></li>
-			<li><a href="http://blog.baiwand.com/m">专家:科比巅峰期单挑能赢乔丹</a></li>
-			<li><a href="http://blog.baiwand.com/m">李案受害方就敲诈说反问梦鸽</a></li>
-			<li><a href="http://blog.baiwand.com/m">披露宋祖英升任就职过程(图)</a></li>
-			<li><a href="http://blog.baiwand.com/m">张家辉vs彭于晏:如脱缰野马</a></li>			
-			<li><a href="http://blog.baiwand.com/m">林丹逆转李宗伟五夺冠</a></li>
-			<li><a href="http://blog.baiwand.com/m">[书]老公是匹狼:天价小娇妻</a></li>		
-			<li><a href="http://blog.baiwand.com/m">新疆巴楚暴恐案2名被告获死刑</a></li>
-		</ul>
-		<ul class="p_newslist">	
-			<li><a href="http://blog.baiwand.com/m">张家辉vs彭于晏:如脱缰野马</a></li>			
-			<li><a href="http://blog.baiwand.com/m">林丹逆转李宗伟五夺冠</a></li>
-			<li><a href="http://blog.baiwand.com/m">[书]老公是匹狼:天价小娇妻</a></li>		
-			<li><a href="http://blog.baiwand.com/m">新疆巴楚暴恐案2名被告获死刑</a></li>
-			<li><a href="http://blog.baiwand.com/m">楼顶盖别墅者曾为区政协委员</a></li>
-			<li><a href="http://blog.baiwand.com/m">李克强追问上海市长改不改革</a></li>
-			<li><a href="http://blog.baiwand.com/m">专家:科比巅峰期单挑能赢乔丹</a></li>
-			<li><a href="http://blog.baiwand.com/m">李案受害方就敲诈说反问梦鸽</a></li>
-		</ul>
-	</div>
-</div>
-
-<div id="tablist" class="tablist">
-<ul>
-	<li class="active">科技</li>
-	<li>手机</li>
-	<li>探索</li>
-</ul>
-</div>
-
-<div class="newBox">
-	<div class="newInBox">
-		<ul class="p_newslist">			
-			<li><a href="http://blog.baiwand.com/m">张朝阳对话周鸿祎:避谈合作</a></li>
-			<li><a href="http://blog.baiwand.com/m">小米手机3代确认将推迟发布</a></li>
-			<li><a href="http://blog.baiwand.com/m">新一代iPhone靠谱传言大盘点</a></li>
-			<li><a href="http://blog.baiwand.com/m">腾讯否认微信将要拆分上市</a></li>
-			<li><a href="http://blog.baiwand.com/m">农村妇人在互联网上玩什么？</a></li>
-			<li><a href="http://blog.baiwand.com/m">蜜蜂胡子大赛:万只蜜蜂爬满脸</a></li>
-		</ul>
-		<ul class="p_newslist">
-			<li><a href="http://blog.baiwand.com/m">新一代iPhone靠谱传言大盘点</a></li>
-			<li><a href="http://blog.baiwand.com/m">农村妇人在互联网上玩什么？</a></li>
-			<li><a href="http://blog.baiwand.com/m">腾讯否认微信将要拆分上市</a></li>
-			<li><a href="http://blog.baiwand.com/m">蜜蜂胡子大赛:万只蜜蜂爬满脸</a></li>
-			<li><a href="http://blog.baiwand.com/m">张朝阳对话周鸿祎:避谈合作</a></li>
-			<li><a href="http://blog.baiwand.com/m">小米手机3代确认将推迟发布</a></li>
-
-		</ul>
-		<ul class="p_newslist">	
-			<li><a href="http://blog.baiwand.com/m">腾讯否认微信将要拆分上市</a></li>
-			<li><a href="http://blog.baiwand.com/m">农村妇人在互联网上玩什么？</a></li>
-			<li><a href="http://blog.baiwand.com/m">蜜蜂胡子大赛:万只蜜蜂爬满脸</a></li>
-			<li><a href="http://blog.baiwand.com/m">张朝阳对话周鸿祎:避谈合作</a></li>
-			<li><a href="http://blog.baiwand.com/m">腾讯否认微信将要拆分上市</a></li>
-			<li><a href="http://blog.baiwand.com/m">农村妇人在互联网上玩什么？</a></li>
-
-		</ul>
-	</div>
-</div>
-
-<div id="tablist2" class="tablist">
-<ul>
-	<li class="active">微博热点</li>
-</ul>
-</div>
-
-<ul class="p_newslist">			
-	<li><a href="http://blog.baiwand.com/m">吴敬琏:社会矛盾几乎到临界点</a></li>
-	<li><a href="http://blog.baiwand.com/m">曝篮协高层保男篮新帅不下课</a></li>
-	<li><a href="http://blog.baiwand.com/m">专家:科比巅峰期单挑能赢乔丹</a></li>
-	<li><a href="http://blog.baiwand.com/m">李案受害方就敲诈说反问梦鸽</a></li>
-</ul>
-<br>
-<a href="http://blog.baiwand.com/m" class="p_newsmore">进入微博热点 &gt;&gt;</a>
-<br>
-<center>Copyright <a href="http://blog.baiwand.com" style="color:#06C">Baiwand</center>
-<br>
-
 <script type="text/javascript">
-function transformBox(obj,value,time,has3d){
-	var time=time?time:0;
-	transl=has3d?"translate3d("+value+"px,0,0)":"translate("+value+"px,0)";
-	obj.css({'-webkit-transform':transl,'-webkit-transition':time+'ms linear'});
-}
-
-//-------------------幻灯片实例化 Start------------------
-function slide(tPoint,d){
-	var _this=tPoint.self,
-		_inner=_this.children(),
-		innerW=_inner.width(),
-		count=tPoint.count,
-		d=d?d:tPoint.direction;
-	switch(d){
-		case "left":
-			--count;
-			break;
-		case "right":
-			++count;
-	}
-	if(count==1){
-		count=0;
-	}
-	if(count==-tPoint.total){
-		count=(typeof _autoSlide!="undefined")?0:-tPoint.total+1;
-	}
-	var offset = count * innerW/tPoint.total;
-	transformBox(_inner,offset,tPoint.speed,tPoint.has3d);
-	tPoint.setAttr("count",count);
-}
-
-function autoSlide(tPoint){
-	_autoSlide=setInterval(function(){
-		slide(tPoint,"left");
-	},2500);
-}
-
-function clearAuto(){
-	if(typeof _autoSlide!="undefined"){
-		clearInterval(_autoSlide);
-		_autoSlide=undefined;
-	}
-}
 
 args={
-	speed: 200,
-	beforeCallback:function(){
-	
+	iniAngle:180,
+	beforeCallback:function(tPoint){
+		var _this=tPoint.self,
+			_width=_this.find("img").width();
+		tPoint.setAttr("iniWidth",_width);		
 	},
 	sCallback:function(tPoint){
-	//alert(tPoint.speed)
-		clearAuto();
+	 e.touches.length
 	},
 	mCallback:function(tPoint){
 		var _this=tPoint.self,
-			_inner=_this.children(),
-			innerW=_inner.width();
-		var offset=tPoint.mX+tPoint.count*innerW/4;
-		transformBox(_inner,offset,0,tPoint.has3d);
-	},
-	eCallback:function(tPoint){
-		slide(tPoint);
-		autoSlide(tPoint);
-	},
-	afterCallback:function(tPoint){
-		autoSlide(tPoint);
-	}
-}
-$("#imgBox").Swipe(args);//幻灯片实例化 End
-
-
-//--------------------新闻实例化 Start--------------------
-args2={
-	iniT:20,
-	iniAngle:20,
-	speed: 300,
-	sCallback:function(tPoint){
-	//alert(tPoint.speed)
-	},
-	mCallback:function(tPoint){
-		var _this=tPoint.self,
-			_inner=_this.children(),
-			innerW=_inner.width();
-		var offset=tPoint.mX+tPoint.count*innerW/3;
-		if(Math.abs(tPoint.angle)<15&&tPoint.duration>100){
-			transformBox(_inner,offset,0,tPoint.has3d);		
-		}
-	},
-	eCallback:function(tPoint){
-		var _this=tPoint.self,
-			_inner=_this.children(),
-			innerW=_inner.width(),
-			count=tPoint.count;
-
-		function slide(d){
-			switch(d){
-				case "left":
-					--count;
-					break;
-				case "right":
-					++count;
+			img=_this.find("img");
+		if(tPoint.mutiTouch){
+			if(!tPoint.startScale){
+				tPoint.setAttr("startScale",0.5);
+			}else{
+				_curScale=tPoint.startScale*tPoint.scale;
+				img.css("width",_curScale*100+"%");
+				tPoint.setAttr("curScale",_curScale);
+				//$("#showT").html("起始缩放:"+tPoint.startScale+"<br>当前缩放:"+tPoint.curScale);	
+				$("#showT").html("缩放:"+tPoint.scale+"<br>起始距离:"+Math.round(tPoint.gStartDis*100)/100+" 当前距离"+Math.round(tPoint.gEndDis*100)/100+"<br>旋转角度:"+tPoint.rotation);		
 			}
-			count=(count==1||count==-tPoint.total)?tPoint.count:count;
-			var offset = count * innerW/tPoint.total;
-			transformBox(_inner,offset,tPoint.speed,tPoint.has3d);
 		}
-		slide(tPoint.direction);
-		_this.prev(".tablist").find("li").removeClass("active").eq(-count).addClass("active");
-		tPoint.setAttr("count",count);
+		//$("#showT").html(tPoint.gStartDis+"  "+tPoint.gEndDis);
+		//$("#showT").html(tPoint.rotation+"  "+tPoint.gStartAngle+"  "+tPoint.gEndAngle);
 	},
-	afterCallback:function(tPoint){
-		tPoint.self.prev(".tablist").find(" li").on("touchstart",function(){
-		var _this=$(this),
-			_index=_this.parent().find("li").index(_this);
-			
-			$(this).addClass("active").siblings().removeClass("active");
-			tPoint.setAttr("count",-_index+1);
-			slide(tPoint,"left");
-		})
+	eCallback:function(tPoint){
+		if(tPoint.curScale){
+			tPoint.setAttr("startScale",tPoint.curScale);
+		}		
 	}
 }
-$(".newBox").Swipe(args2);//新闻实例化 End
-
-
+$("#touchBox").Swipe(args);
 </script>
 </body>
 </html>
