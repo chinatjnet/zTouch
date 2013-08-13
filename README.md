@@ -5,6 +5,7 @@ zTouch
 
 Zepto.js v1.0.1版本的touch.js模块引入使用后会导致页面很卡的情况，所以开发了一个新的扩展插件来替换其touch.js。已经过Android/ios测试。<br/>
 
+![github](https://raw.github.com/chinatjnet/zTouch/master/example/images/rich.png "rich")
 ### * zTouch特点：<br/>
 * zTouch.js只包含核心功能函数，不包含任何效果，简洁轻巧;
 * 提供丰富的回调参数，可由用户自定义扩展效果（可参考Demo）;
