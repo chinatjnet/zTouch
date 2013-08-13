@@ -36,6 +36,8 @@
 
 <p>Zepto.js v1.0.1版本的touch.js模块引入使用后会导致页面很卡的情况，所以开发了一个新的扩展插件来替换其touch.js。已经过Android/ios测试。<br></p>
 
+<p><img src="https://raw.github.com/chinatjnet/zTouch/master/example/images/rich.png" alt="github" title="rich"></p>
+
 <h3>
 <a name="-ztouch%E7%89%B9%E7%82%B9" class="anchor" href="#-ztouch%E7%89%B9%E7%82%B9"><span class="octicon octicon-link"></span></a>* zTouch特点：<br>
 </h3>
@@ -64,7 +66,7 @@
 <a name="-%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E4%B8%AD%E4%BC%9A%E4%BC%A0%E5%85%A5touch%E4%BA%8B%E4%BB%B6%E7%9B%B8%E5%85%B3%E5%9B%9E%E8%B0%83%E5%8F%82%E6%95%B0" class="anchor" href="#-%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0%E4%B8%AD%E4%BC%9A%E4%BC%A0%E5%85%A5touch%E4%BA%8B%E4%BB%B6%E7%9B%B8%E5%85%B3%E5%9B%9E%E8%B0%83%E5%8F%82%E6%95%B0"><span class="octicon octicon-link"></span></a>* 回调函数中会传入touch事件相关回调参数：<br>
 </h3>
 
-<p><b>self</b>:实例化的BOX,<br><b>startX</b>:触点起始X,<br><b>startY</b>:触点起始Y,<br><b>bL</b>:(Box Left) 相对于文档的left偏移,<br><b>bT</b>:(Box Top)相对于文档的top偏移,<br><b>bW</b>:(Box Width)BOX的宽度,<br><b>bH</b>:(Box Height)BOX的高度,<br><b>bRb</b>:(Box Right Border)BOX的右边界,<br><b>bBb</b>:(Box Bottom Border)BOX的下边界,<br><b>tPoint.endX</b>:触点结束X;<br><b>tPoint.endY</b>:触点结束Y;<br><b>tPoint.mX</b>:(move x distance)X方向滑动距离;<br><b>tPoint.mY</b>:(move y distance)Y方向滑动距离;<br><b>tPoint.direction</b>:手势滑动方向(left/right/false);<br><b>tPoint.angle</b>:单点手势滑动角度;<br><b>tPoint.vendor</b>:浏览器前缀(-moz/-webkit/-o/-ms);<br><br></p>
+<p><b>self</b>:实例化的BOX,<br><b>startX</b>:触点起始X,<br><b>startY</b>:触点起始Y,<br><b>bL</b>:(Box Left) 相对于文档的left偏移,<br><b>bT</b>:(Box Top)相对于文档的top偏移,<br><b>bW</b>:(Box Width)BOX的宽度,<br><b>bH</b>:(Box Height)BOX的高度,<br><b>bRb</b>:(Box Right Border)BOX的右边界,<br><b>bBb</b>:(Box Bottom Border)BOX的下边界,<br><b>endX</b>:触点结束X;<br><b>endY</b>:触点结束Y;<br><b>mX</b>:(move x distance)X方向滑动距离;<br><b>mY</b>:(move y distance)Y方向滑动距离;<br><b>direction</b>:手势滑动方向(left/right/false);<br><b>angle</b>:单点手势滑动角度;<br><b>duration</b>:手势持续时间;<br><b>vendor</b>:浏览器前缀(-moz/-webkit/-o/-ms);<br><br></p>
 
 <p><b>tPoint.multiTouch</b>:是否多点触摸(touchmove时可监控);<br><b>tPoint.gStartDis</b>:(gisture start distance)手势起始距离;<br><b>tPoint.gEndDis</b>:(gisture end distance)手势结束距离;<br><b>tPoint.scale</b>:手势缩放比例;<br><b>tPoint.rotation</b>:手势旋转角度;<br></p>
 
@@ -103,6 +105,12 @@ $("body").Swipe(args);
 </h3>
 
 <p><a href="http://chinatjnet.github.io/zTouch/">http://chinatjnet.github.io/zTouch/</a></p>
+
+<h3>
+<a name="-github%E5%9C%B0%E5%9D%80" class="anchor" href="#-github%E5%9C%B0%E5%9D%80"><span class="octicon octicon-link"></span></a>* Github地址:<br>
+</h3>
+
+<p><a href="https://github.com/chinatjnet/zTouch/">https://github.com/chinatjnet/zTouch/</a></p>
 
 <h3>
 <a name="-%E6%BC%94%E7%A4%BA%E5%9C%B0%E5%9D%80" class="anchor" href="#-%E6%BC%94%E7%A4%BA%E5%9C%B0%E5%9D%80"><span class="octicon octicon-link"></span></a>* 演示地址:<br>
