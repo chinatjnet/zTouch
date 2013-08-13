@@ -83,3 +83,7 @@ http://chinatjnet.github.io/zTouch/demo.html
 <br/><b>二维码：</b><br/>
 ![github](https://raw.github.com/chinatjnet/zTouch/master/example/images/QRcode.png "QRcode")
 <br><br>
+![github](https://raw.github.com/chinatjnet/zTouch/master/example/images/rich.png "rich")
+
+
+
