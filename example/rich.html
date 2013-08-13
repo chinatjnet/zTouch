@@ -24,9 +24,9 @@ border-bottom: 2px solid #FB8700;
 #imgInBox li h3{position:absolute;left:0;bottom:0;right:0px;background: rgba(0, 0, 0, 0.6);color:#fff;font-size:16px;font-weight:normal;margin:0px;padding:4px 0px;}
 
 
-#newBox{width:100%;margin:0px auto;cursor:move;overflow:hidden;}
-#newInBox{width:300%;margin:0px;padding:0px;}
-#newInBox ul{width:33.3%;float:left;list-style:none;}
+.newBox{width:100%;margin:0px auto;cursor:move;overflow:hidden;}
+.newInBox{width:300%;margin:0px;padding:0px;}
+.newInBox ul{width:33.3%;float:left;list-style:none;}
 .p_newslist li{height:35px;line-height:35px;}
 .p_newslist li a{color:#555;font-size:18px;text-decoration:none;padding:0px 15px}
 
@@ -66,8 +66,51 @@ zTouch多效果演示
 	<li>社会</li>
 </ul>
 </div>
-<div id="newBox">
-	<div id="newInBox">
+<div class="newBox">
+	<div class="newInBox">
+		<ul class="p_newslist">			
+			<li><a href="http://blog.baiwand.com/m">新疆巴楚暴恐案2名被告获死刑</a></li>
+			<li><a href="http://blog.baiwand.com/m">楼顶盖别墅者曾为区政协委员</a></li>
+			<li><a href="http://blog.baiwand.com/m">李克强追问上海市长改不改革</a></li>
+			<li><a href="http://blog.baiwand.com/m">陕西神木富豪一夜返贫频跑路</a></li>
+			<li><a href="http://blog.baiwand.com/m">吴敬琏:社会矛盾几乎到临界点</a></li>
+			<li><a href="http://blog.baiwand.com/m">曝篮协高层保男篮新帅不下课</a></li>
+			<li><a href="http://blog.baiwand.com/m">专家:科比巅峰期单挑能赢乔丹</a></li>
+			<li><a href="http://blog.baiwand.com/m">李案受害方就敲诈说反问梦鸽</a></li>
+		</ul>
+		<ul class="p_newslist">	
+			<li><a href="http://blog.baiwand.com/m">2曝篮协高层保男篮新帅不下课</a></li>
+			<li><a href="http://blog.baiwand.com/m">2专家:科比巅峰期单挑能赢乔丹</a></li>
+			<li><a href="http://blog.baiwand.com/m">2李案受害方就敲诈说反问梦鸽</a></li>
+			<li><a href="http://blog.baiwand.com/m">2披露宋祖英升任就职过程(图)</a></li>
+			<li><a href="http://blog.baiwand.com/m">2张家辉vs彭于晏:如脱缰野马</a></li>			
+			<li><a href="http://blog.baiwand.com/m">2林丹逆转李宗伟五夺冠</a></li>
+			<li><a href="http://blog.baiwand.com/m">2[书]老公是匹狼:天价小娇妻</a></li>		
+			<li><a href="http://blog.baiwand.com/m">2新疆巴楚暴恐案2名被告获死刑</a></li>
+		</ul>
+		<ul class="p_newslist">	
+			<li><a href="http://blog.baiwand.com/m">3张家辉vs彭于晏:如脱缰野马</a></li>			
+			<li><a href="http://blog.baiwand.com/m">3林丹逆转李宗伟五夺冠</a></li>
+			<li><a href="http://blog.baiwand.com/m">3[书]老公是匹狼:天价小娇妻</a></li>		
+			<li><a href="http://blog.baiwand.com/m">3新疆巴楚暴恐案2名被告获死刑</a></li>
+			<li><a href="http://blog.baiwand.com/m">3楼顶盖别墅者曾为区政协委员</a></li>
+			<li><a href="http://blog.baiwand.com/m">3李克强追问上海市长改不改革</a></li>
+			<li><a href="http://blog.baiwand.com/m">3专家:科比巅峰期单挑能赢乔丹</a></li>
+			<li><a href="http://blog.baiwand.com/m">3李案受害方就敲诈说反问梦鸽</a></li>
+		</ul>
+	</div>
+</div>
+
+<div id="tablist" class="tablist">
+<ul>
+	<li class="active">新闻</li>
+	<li>军事</li>
+	<li>社会</li>
+</ul>
+</div>
+
+<div class="newBox">
+	<div class="newInBox">
 		<ul class="p_newslist">			
 			<li><a href="http://blog.baiwand.com/m">新疆巴楚暴恐案2名被告获死刑</a></li>
 			<li><a href="http://blog.baiwand.com/m">楼顶盖别墅者曾为区政协委员</a></li>
@@ -226,12 +269,12 @@ args2={
 			var offset = count * innerW/tPoint.total;
 			transformBox(_inner,offset,tPoint.speed,tPoint.has3d);
 		}
-			slide(tPoint.direction);
-			$("#tablist li").removeClass("active").eq(-count).addClass("active");
-			tPoint.setAttr("count",count);
+		slide(tPoint.direction);
+		_this.prev(".tablist").find("li").removeClass("active").eq(-count).addClass("active");
+		tPoint.setAttr("count",count);
 	},
 	afterCallback:function(tPoint){
-		$("#tablist li").on("touchstart",function(){
+		tPoint.self.prev(".tablist").find(" li").on("touchstart",function(){
 		var _this=$(this),
 			_index=_this.parent().find("li").index(_this);
 			
@@ -241,7 +284,7 @@ args2={
 		})
 	}
 }
-$("#newBox").Swipe(args2);//新闻实例化 End
+$(".newBox").Swipe(args2);//新闻实例化 End
 
 
 </script>
