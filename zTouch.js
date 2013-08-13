@@ -20,16 +20,13 @@ function Swipe(tBox,args) {
 		tPoint[o]=args[o];
 	}
 	
-	//获取浏览器前缀
-	function getVendor(){
-	  	var vendor = (/webkit/i).test(navigator.appVersion) ? 'webkit' :
-	  		(/firefox/i).test(navigator.userAgent) ? 'Moz' :
-	  		'opera' in window ? 'O' : '';
-	  	return vendor;
-	}
-	
-  	// Browser capabilities
+  	// 浏览器特性检测
+  	tPoint.vendor = (/webkit/i).test(navigator.appVersion) ? 'webkit' :
+  		(/firefox/i).test(navigator.userAgent) ? 'Moz' :
+  		'opera' in window ? 'O' : '';
   	tPoint.has3d = 'WebKitCSSMatrix' in window && 'm11' in new WebKitCSSMatrix();
+  	tPoint.hasTouch = 'ontouchstart' in window;
+  	tPoint.hasTransform = tPoint.vendor + 'Transform' in document.documentElement.style;
 	
 	//方向检测(左移距离，上移距离)
 	function directionDetect(l,t){
@@ -117,7 +114,6 @@ function Swipe(tBox,args) {
 			bH:bH,
 			bRb:bL+bW, //右边界
 			bBb:bT+bH, //下边界
-			vendor:getVendor(),
 			identifier:point.identifier
 		}
 		setPointData(point,setList);
