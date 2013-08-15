@@ -1,6 +1,6 @@
 zTouch
 ======
-
+![github](https://raw.github.com/chinatjnet/zTouch/master/example/images/zTouch.png "zTouch")
 ### * Zepto.js v1.0.1   touch extend (Zepto.js v1.0.1 的swipe touch扩展)
 
 Zepto.js v1.0.1版本的touch.js模块引入使用后会导致页面很卡的情况，所以开发了一个新的扩展插件来替换其touch.js。已经过Android/ios测试。<br/>
