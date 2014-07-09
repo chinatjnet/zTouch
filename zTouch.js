@@ -153,7 +153,9 @@ function Swipe(tBox,args) {
 	}
 	
 	// Touch事件监听
-	_this.die("touchstart,touchmove,touchend");
+	_this.get(0).removeEventListener('touchstart');
+	_this.get(0).removeEventListener('touchmove');
+	_this.get(0).removeEventListener('touchend');
 	_this.get(0).addEventListener('touchstart',startFun);
 	_this.get(0).addEventListener('touchmove',moveFun);
 	_this.get(0).addEventListener('touchend',endFun);
